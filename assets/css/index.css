@@ -410,3 +410,111 @@ p {
     color: var(--primary-blue);
     box-shadow: 0 0 15px rgba(0, 222, 211, 0.4);
 }
+/* ==================== 新增：手機版行動裝置最佳化 (Responsive Design) ==================== */
+@media (max-width: 600px) {
+    /* 1. 調整全域間距與字體大小 */
+    body {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 32px; /* 縮小大標題，防止標題在手機上斷行或溢出 */
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    /* 2. 標頭區域：由橫排改為直排 */
+    header {
+        margin-bottom: 25px;
+    }
+
+    .logo-area {
+        flex-direction: column; /* 改為上下排列 */
+        gap: 15px;
+        text-align: center;
+    }
+
+    .logo {
+        width: 100px;  /* 縮小手機版 Logo 尺寸 */
+        height: 100px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        width: 100%;
+        justify-content: center; /* 讓導航連結在手機中央排列 */
+        font-size: 0.9rem;
+    }
+
+    /* 3. 輪播圖區域：完美調整手機高度與字級 */
+    .carousel-section {
+        margin: 20px 0 30px 0;
+    }
+
+    .carousel-slide img {
+        height: 280px; /* 降低手機版輪播圖高度，維持視覺黃金比例 */
+    }
+
+    .slide-caption {
+        padding: 20px 15px; /* 縮小內襯墊 */
+    }
+
+    .slide-caption h3 {
+        font-size: 1.15rem; /* 縮小手機版的投影片標題 */
+        margin-top: 8px;
+    }
+
+    .slide-tag {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+
+    /* 縮小左右切換箭頭，並往邊緣靠攏以免擋到文字 */
+    .carousel-arrow {
+        width: 36px;
+        height: 36px;
+    }
+    .carousel-arrow.prev { left: 8px; }
+    .carousel-arrow.next { right: 8px; }
+    
+    .carousel-arrow .material-icons-sharp {
+        font-size: 16px;
+    }
+
+    /* 4. 媒體介紹區域：縮小間距 */
+    .intro-section {
+        margin-top: 40px;
+        padding: 20px 15px;
+    }
+
+    /* 5. 電子報訂閱區塊：解決輸入框與按鈕擠在一起的問題 */
+    .epaper-section {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .epaper-glass-box {
+        padding: 30px 15px;
+    }
+
+    .subscribe-form {
+        flex-direction: column; /* ⚠️ 核心：將輸入框與按鈕由橫排改為直排堆疊 */
+        gap: 12px;
+        width: 100%;
+    }
+
+    .subscribe-form input[type="email"] {
+        width: 100%;
+        padding: 12px 15px;
+        text-align: center; /* 讓文字置中，提升手機操作手感 */
+    }
+
+    .subscribe-form button {
+        width: 100%;
+        padding: 12px 0;
+        justify-content: center; /* 讓按鈕文字與圖示在手機版完美居中 */
+    }
+}
