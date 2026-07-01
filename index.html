@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
@@ -102,10 +102,9 @@
         <h3>訂閱電子報</h3>
         <p>請輸入您的電子郵件，以獲取電子報</p>
         
-        <form class="subscribe-form" id="newsletter-form" action="https://app.kit.com/f/forms/21401727/subscribe" method="post">
+        <form class="subscribe-form" id="newsletter-form" action="https://app.kit.com/forms/9632558/subscriptions" method="post" target="hidden-iframe">
             
             <input type="hidden" name="form_id" value="21401727">
-            
             <input type="email" name="email_address" placeholder="輸入您的電子郵件..." required>
             
             <button type="submit">
@@ -113,6 +112,8 @@
                 訂閱解鎖
             </button>
         </form>
+        
+        <iframe name="hidden-iframe" id="hidden-iframe" style="display: none;"></iframe>
         
     </div>
 </section>
