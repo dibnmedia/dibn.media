@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網內大報社 DIBN｜官方網站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <a href="index.html" class="site-title">
+                <img src="assets/logo.svg" alt="網內大報社 Logo" class="logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="https://www.threads.com/@dibn_media" target="_blank">官方threads</a></li>
+                <li><a href="#intro-section">關於我們</a></li>
+                <li><a href="#epaper-section">訂閱電子報</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="carousel-section">
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow prev" id="prev-btn">
+                <span class="material-icons-sharp">arrow_back_ios</span>
+            </button>
+            <button class="carousel-arrow next" id="next-btn">
+                <span class="material-icons-sharp">arrow_forward_ios</span>
+            </button>
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="carousel-track">
+                    <a href="/about" class="carousel-slide">
+                        <img src="assets/bg1.jpg" alt="全新傳媒">
+                        <div class="slide-caption">
+                            <span class="slide-tag">全新傳媒</span>
+                            <h3>網內大報社 DIBN</h3>
+                        </div>
+                    </a>
+                    <a href="https://www.threads.com/@dibn_media/post/DaICLnHAF_a?xmt=AQG0rRpJKhrTLisbeA2hwP4lxfBoilxu5cRsVBgsQAfEzg" class="carousel-slide">
+                        <img src="assets/bg2.jpg" alt="司法不公">
+                        <div class="slide-caption">
+                            <span class="slide-tag">司法不公</span>
+                            <h3>無罪政治人物遭濫權執政黨羈押導致外貌變老許多</h3>
+                        </div>
+                    </a>
+                    <a href="https://www.threads.com/@dibn_media/post/DaNIKi9DXui?xmt=AQG0rRpJKhrTLisbeA2hwP4lxfBoilxu5cRsVBgsQAfEzg" class="carousel-slide">
+                        <img src="assets/bg3.jpg" alt="市長投票">
+                        <div class="slide-caption">
+                            <span class="slide-tag">市長投票</span>
+                            <h3>台北市長候選人政績比較</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-dots" id="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <section id="intro-section" class="intro-section">
+        <div class="section-title">
+            <span class="material-icons-sharp">terminal</span>
+            <h2>關於我們</h2>
+        </div>
+        <p>諧音滿滿的傳媒，「網內」就是往內、「報社」就是你想的那個，合起來看似色色的，其實是很明確地告訴你，我們在「網內」。</p>
+        <p>Deep Internet Breaking News<br>DIBN 網內大報社 Since 2026</p>
+    </section>
+
+    <section class="features-section">
+        <div class="feature-card">
+            <span class="material-icons-sharp feature-icon">bolt</span>
+            <h3>情資極速大爆射</h3>
+            <p>即時搬運Threads上最火熱的政治口水與攻防，不浪費時間報無聊的長篇大論，只給你最精華的焦點摩擦。</p>
+        </div>
+        <div class="feature-card">
+            <span class="material-icons-sharp feature-icon">import_contacts</span>
+            <h3>雙關語極致嘲諷</h3>
+            <p>打破沉悶的政論結構，融合高級雙關語及色色諧音，用最強烈的陰陽怪氣風格消解嚴肅對立，罵人不帶髒字。</p>
+        </div>
+        <div class="feature-card">
+            <span class="material-icons-sharp feature-icon">security</span>
+            <h3>堅定藍白同溫層</h3>
+            <p>專為捍衛理性力量而生，精準突破執政當局與綠色側翼的資訊封鎖，帶你深入核心看清誰才是真正硬起來的陣營。</p>
+        </div>
+    </section>
+
+<section id="epaper-section" class="epaper-section">
+    <div class="epaper-glass-box">
+        <span class="material-icons-sharp lock-icon">lock</span>
+        <h3>訂閱電子報</h3>
+        <p>請輸入您的電子郵件，以獲取電子報</p>
+        
+        <form class="subscribe-form" id="newsletter-form" action="https://app.kit.com/f/forms/你的表單ID/subscribe" method="post">
+            
+            <input type="hidden" name="form_id" value="你的表單ID">
+            
+            <input type="email" name="email_address" placeholder="輸入您的電子郵件..." required>
+            
+            <button type="submit">
+                <span class="material-icons-sharp">forward_to_inbox</span>
+                訂閱解鎖
+            </button>
+        </form>
+        
+    </div>
+</section>
+</div>
+
+<script src="js/index.js"></script>
+</body>
+</html>

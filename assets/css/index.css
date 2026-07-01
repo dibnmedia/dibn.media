@@ -1,0 +1,412 @@
+:root {
+    --bg-color: #0c0d14;
+    --primary-blue: #1800ae;    /* 核心深藍 */
+    --primary-cyan: #00ded3;    /* 核心白/青色，科技霓虹感 */
+    --card-bg: rgba(24, 0, 174, 0.05);
+    --card-border: rgba(0, 222, 211, 0.15);
+    --text-main: #f0f2f5;
+    --text-muted: #8a90a6;
+    --apple-glass: rgba(12, 13, 20, 0.7);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'JetBrains Mono', 'Noto Sans TC', sans-serif;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* 標頭與特務狀態列 */
+header {
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.logo{
+    width: 140px;
+    height: 140px;
+    filter: invert(1) brightness(2);
+}
+
+.nav-links{
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-cyan);
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: 2px;
+}
+
+h1 span.highlight {
+    color: var(--primary-cyan);
+    text-shadow: 0 0 10px rgba(0, 222, 211, 0.3);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+p {
+    font-size: 0.95rem;
+    color: #d1d5db;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.highlight-word {
+    color: var(--primary-cyan);
+    font-weight: 700;
+    border-bottom: 1px dashed var(--primary-cyan);
+}
+
+.carousel-section {
+    margin: 30px 0 40px 0;
+    position: relative;
+}
+
+.carousel-wrapper {
+    position: relative;
+    border: 1px solid rgba(0, 222, 211, 0.15);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #11121a;
+}
+
+.carousel-track-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 300%; /* 三張圖 = 300% */
+}
+
+/* 讓每一張投影片（<a>標籤）完美撐滿容器 */
+.carousel-slide {
+    width: 100%;
+    flex: 1 0 100%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.carousel-slide img {
+    width: 100%;
+    max-width: 960px;
+    height: 540px;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.1); /* 壓暗圖片以凸顯文字 */
+    transition: transform 0.6s;
+}
+
+/* 滑鼠懸停時圖片微放大，營造高級互動感 */
+.carousel-slide:hover img {
+    transform: scale(1.02);
+}
+
+/* 圖片文字說明（Apple風磨砂毛玻璃） */
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 30px;
+    background: linear-gradient(to top, rgba(12, 13, 20, 0.95), rgba(12, 13, 20, 0));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.slide-tag {
+    font-size: 0.75rem;
+    background: var(--primary-blue);
+    color: var(--primary-cyan);
+    padding: 3px 8px;
+    border: 1px solid var(--primary-cyan);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.slide-caption h3 {
+    color: var(--text-main);
+    font-size: 1.6rem;
+    margin-top: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* 左右箭頭按鈕 */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(24, 0, 174, 0.4);
+    border: 1px solid rgba(0, 222, 211, 0.3);
+    color: var(--text-main);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.2s;
+}
+
+.carousel-arrow:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-cyan);
+    color: var(--primary-cyan);
+    box-shadow: 0 0 10px rgba(0, 222, 211, 0.3);
+}
+
+.carousel-arrow.prev { left: 15px; }
+.carousel-arrow.next { right: 15px; }
+
+/* 修正 Google Font 偏心問題 */
+.carousel-arrow .material-icons-sharp {
+    font-size: 18px;
+}
+.carousel-arrow.prev .material-icons-sharp {
+    padding-left: 5px; /* 修正 IOS 箭頭視覺偏心 */
+}
+
+/* 底部導航點點 */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(24, 0, 174, 0.4);
+    border: 1px solid rgba(0, 222, 211, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--primary-cyan);
+    border-color: var(--primary-cyan);
+    width: 24px; /* 膠囊型動態選中效果 */
+    border-radius: 4px;
+}
+
+/* ==================== 新增：媒體介紹區域樣式 ==================== */
+.intro-section {
+    margin-top: 60px;
+    padding: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    position: relative;
+}
+
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-blue);
+}
+
+.intro-section .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.intro-section .section-title .material-icons-sharp {
+    color: var(--primary-cyan);
+    font-size: 24px;
+}
+
+.intro-section p {
+    color: #e5e7eb;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* ==================== 新增：三大優點區域樣式 ==================== */
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: rgba(24, 0, 174, 0.02);
+    border: 1px solid rgba(24, 0, 174, 0.3);
+    padding: 25px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--primary-cyan);
+    background: rgba(0, 222, 211, 0.02);
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    color: var(--primary-cyan);
+    font-size: 32px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.feature-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .features-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== 新增：電子報訂閱樣式 ==================== */
+.epaper-section {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.epaper-glass-box {
+    border: 1px solid var(--primary-blue);
+    background: var(--apple-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.epaper-glass-box .lock-icon {
+    font-size: 36px;
+    color: var(--primary-cyan);
+    margin-bottom: 15px;
+}
+
+.epaper-glass-box h3 {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.epaper-glass-box p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    max-width: 550px;
+    margin: 0 auto 30px auto;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.subscribe-form input[type="email"] {
+    flex: 1;
+    background: #12131a;
+    border: 1px solid var(--primary-blue);
+    padding: 14px 18px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+}
+
+.subscribe-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--primary-cyan);
+}
+
+.subscribe-form button {
+    background: var(--primary-blue);
+    color: var(--text-main);
+    border: 1px solid var(--primary-cyan);
+    padding: 0 25px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 2px;
+}
+
+.subscribe-form button:hover {
+    background: var(--primary-cyan);
+    color: var(--primary-blue);
+    box-shadow: 0 0 15px rgba(0, 222, 211, 0.4);
+}
